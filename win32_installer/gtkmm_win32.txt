@@ -156,4 +156,3 @@ All gtkmm methods and signals are available on win32.
 ====================================
 
 All demos and examples compile/run on win32
-
