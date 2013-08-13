@@ -694,3 +694,5 @@ pip-log.txt
 /gdk/gdkmm/private/types_p.h
 /gdk/gdkmm/private/visual_p.h
 /gdk/gdkmm/private/window_p.h
+
+/build/msvc/gtkmm.vsprops
