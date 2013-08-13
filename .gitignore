@@ -668,3 +668,29 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+/gdk/gdkmm/private/bitmap_p.h
+/gdk/gdkmm/private/color_p.h
+/gdk/gdkmm/private/colormap_p.h
+/gdk/gdkmm/private/cursor_p.h
+/gdk/gdkmm/private/device_p.h
+/gdk/gdkmm/private/display_p.h
+/gdk/gdkmm/private/displaymanager_p.h
+/gdk/gdkmm/private/dragcontext_p.h
+/gdk/gdkmm/private/drawable_p.h
+/gdk/gdkmm/private/event_p.h
+/gdk/gdkmm/private/gc_p.h
+/gdk/gdkmm/private/image_p.h
+/gdk/gdkmm/private/pixbuf_p.h
+/gdk/gdkmm/private/pixbufanimation_p.h
+/gdk/gdkmm/private/pixbufanimationiter_p.h
+/gdk/gdkmm/private/pixbufformat_p.h
+/gdk/gdkmm/private/pixbufloader_p.h
+/gdk/gdkmm/private/pixmap_p.h
+/gdk/gdkmm/private/rectangle_p.h
+/gdk/gdkmm/private/region_p.h
+/gdk/gdkmm/private/rgbcmap_p.h
+/gdk/gdkmm/private/screen_p.h
+/gdk/gdkmm/private/types_p.h
+/gdk/gdkmm/private/visual_p.h
+/gdk/gdkmm/private/window_p.h
