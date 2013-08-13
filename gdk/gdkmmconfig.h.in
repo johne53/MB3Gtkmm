@@ -6,13 +6,13 @@
 /* Define to omit deprecated API from gdkmm. */
 #undef GDKMM_DISABLE_DEPRECATED
 
-/* Major version number of gdkmm. */
-#undef GDKMM_MAJOR_VERSION
+/* Major version number of gdkmm. */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GDKMM_MAJOR_VERSION @GDKMM_MAJOR_VERSION@
 
-/* Micro version number of gdkmm. */
-#undef GDKMM_MICRO_VERSION
+/* Micro version number of gdkmm. */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GDKMM_MICRO_VERSION @GDKMM_MICRO_VERSION@
 
-/* Minor version number of gdkmm. */
-#undef GDKMM_MINOR_VERSION
+/* Minor version number of gdkmm. */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GDKMM_MINOR_VERSION @GDKMM_MINOR_VERSION@
 
 #endif /* !_GDKMM_CONFIG_H */

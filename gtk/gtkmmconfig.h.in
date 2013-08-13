@@ -12,17 +12,17 @@
 /* Defined when the --enable-maemo-extensions configure argument was given */
 #undef GTKMM_MAEMO_EXTENSIONS_ENABLED
 
-/* Major version number of gtkmm. */
-#undef GTKMM_MAJOR_VERSION
+/* Major version number of gtkmm. */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GTKMM_MAJOR_VERSION @GTKMM_MAJOR_VERSION@
 
-/* Micro version number of gtkmm. */
-#undef GTKMM_MICRO_VERSION
+/* Micro version number of gtkmm. */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GTKMM_MICRO_VERSION @GTKMM_MICRO_VERSION@
 
-/* Minor version number of gtkmm. */
-#undef GTKMM_MINOR_VERSION
+/* Minor version number of gtkmm. * /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GTKMM_MINOR_VERSION @GTKMM_MINOR_VERSION@
 
-/* Define when building gtkmm as a static library */
-#undef GTKMM_STATIC_LIB
+/* Define when building gtkmm as a static library */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
+#define GTKMM_STATIC_LIB 1
 
 /* Enable DLL-specific stuff only when not building a static library */
 #if (!defined(GTKMM_STATIC_LIB) && !defined(__CYGWIN__) && defined(_WIN32))
