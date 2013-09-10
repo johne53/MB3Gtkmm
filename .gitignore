@@ -696,3 +696,16 @@ pip-log.txt
 /gdk/gdkmm/private/window_p.h
 
 /build/msvc/gtkmm.vsprops
+
+/gtk/gtkmm/cellrendererspinner.cc
+/gtk/gtkmm/cellrendererspinner.h
+/gtk/gtkmm/entrybuffer.cc
+/gtk/gtkmm/entrybuffer.h
+/gtk/gtkmm/offscreenwindow.cc
+/gtk/gtkmm/offscreenwindow.h
+/gtk/gtkmm/spinner.cc
+/gtk/gtkmm/spinner.h
+/gtk/gtkmm/toolitemgroup.cc
+/gtk/gtkmm/toolitemgroup.h
+/gtk/gtkmm/toolpalette.cc
+/gtk/gtkmm/toolpalette.h
