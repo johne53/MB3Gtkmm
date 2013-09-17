@@ -46,11 +46,10 @@ public:
 
   _CTOR_DEFAULT()
 
-  //Note that we try to use the same default parameter value as the default property value.
   /**
    * @newin{3,2}
    */
-  explicit Scale(Orientation orientation = ORIENTATION_HORIZONTAL);
+  explicit Scale(Orientation orientation);
 
   //Note that we try to use the same default parameter value as the default property value.
   explicit Scale(const Glib::RefPtr<Adjustment>& adjustment, Orientation orientation = ORIENTATION_HORIZONTAL);

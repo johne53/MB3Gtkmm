@@ -1,5 +1,5 @@
 /*
- * Copyright 1998-2002 The gtkmm Development Team
+ * Copyright 2013 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -17,30 +17,9 @@
  */
 
 #include <gtk/gtk.h>
-#include <gtkmm/stock.h>
 
 
 namespace Gtk
 {
-
-Button::Button(const Glib::ustring& label, bool mnemonic)
-:
-  _CONSTRUCT("label", label.c_str(), "use_underline", gboolean(mnemonic))
-{}
-
-#ifndef GTKMM_DISABLE_DEPRECATED
-Button::Button(const StockID& stock_id)
-:
-  _CONSTRUCT("use_stock", 1, "label", stock_id.get_c_str())
-{}
-#endif //GTKMM_DISABLE_DEPRECATED
-
-void Button::set_image_from_icon_name(const Glib::ustring& icon_name, IconSize size)
-{
-  Image* image = Gtk::manage(new Image());
-  image->set_from_icon_name(icon_name, size);
-  set_image(*image);
-}
-
 } // namespace Gtk
 
