@@ -154,7 +154,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /Y &quot;$(OutDir)\$(TargetName).lib&quot; &quot;$(GenericWin32LibraryFolder)\$(TargetName).lib&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmm.h&quot; &quot;$(GenericIncludeFolder)&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmmconfig.h&quot; &quot;$(GenericIncludeFolder)&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmm\*.h&quot; &quot;$(GenericIncludeFolder)\gtkmm&quot;&#x0D;&#x0A;"
+				CommandLine="copy /Y &quot;$(OutDir)\$(TargetName).lib&quot; &quot;$(GenericWin32LibraryFolder)\$(TargetName).lib&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmm.h&quot; &quot;$(GenericIncludeFolder)&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmmconfig.h&quot; &quot;$(GenericIncludeFolder)&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmm\*.h&quot; &quot;$(GenericIncludeFolder)\gtkmm&quot;&#x0D;&#x0A;copy /Y &quot;..\..\gtk\gtkmm.pc&quot; &quot;$(GenericLibraryFolder)\pkgconfig&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
