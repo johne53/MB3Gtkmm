@@ -10,8 +10,6 @@ $micro = 4;
 $binary_age = 2404;
 $interface_age = 0;
 $current_minus_age = 0;
-$gtkmm_module_name = "libgtkmm-2.24";
-$gdkmm_module_name = "libgdkmm-2.24";
 $exec_prefix = "lib";
 
 sub process_file
@@ -43,11 +41,12 @@ sub process_file
 	    s/\@GTKMM_MODULE_NAME@/$gtkmm_module_name/g;
 	    s/\@GDKMM_MODULE_NAME@/$gdkmm_module_name/g;
 	    s/\@PERL@/$perl_path/g;
-	    s/\@prefix@/$exec_prefix/g;
+	    s/\@prefix@/$prefix/g;
 	    s/\@exec_prefix@/$exec_prefix/g;
 	    s/\@datarootdir@/$data_root_dir/g;
 	    s/\@M4@/$m4_path/g;
 	    s/\@libdir@/$generic_library_folder/g;
+	    s/\@includedir@/$generic_include_folder/g;
 	    s/\@GlibBuildRootFolder@/$glib_build_root_folder/g;
 	    s/\@AtkmmBuildRootFolder@/$atkmm_build_root_folder/g;
 	    s/\@GlibmmBuildRootFolder@/$glibmm_build_root_folder/g;
@@ -61,14 +60,31 @@ sub process_file
 	    s/\@Debug32TargetFolder@/$debug32_target_folder/g;
 	    s/\@Release32TargetFolder@/$release32_target_folder/g;
 	    s/\@TargetSxSFolder@/$target_sxs_folder/g;
+	    s/\@GDKMM_API_VERSION@/$gdkmm_api_version/g;
+	    s/\@GTKMM_API_VERSION@/$gtkmm_api_version/g;
 	    print OUTPUT;
 	}
 }
 
+my $command=join(' ',@ARGV);
+
+if (-1 != index($command, "-X64")) {
+	$gdkmm_module_name = "libgdkmm64-2.0";
+	$gtkmm_module_name = "libgtkmm64-2.0";
+	$gdkmm_api_version = "64-2.0";
+	$gtkmm_api_version = "64-2.0";
+} else {
+	$gdkmm_module_name = "libgdkmm32-2.0";
+	$gtkmm_module_name = "libgtkmm32-2.0";
+	$gdkmm_api_version = "32-2.0";
+	$gtkmm_api_version = "32-2.0";
+}
+
+process_file ("gdk/gdkmm.pc");
+process_file ("gtk/gtkmm.pc");
 process_file ("gtk/gtkmmconfig.h");
 
-my $command=join(' ',@ARGV);
-if ($command eq -buildall) {
+if (-1 != index($command, "-buildall")) {
 	process_file ("gdk/gdkmmconfig.h");
 	process_file ("build/msvc/gtkmm.vsprops");
 }
