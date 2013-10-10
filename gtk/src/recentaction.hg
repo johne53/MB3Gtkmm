@@ -28,7 +28,8 @@ _PINCLUDE(gtkmm/private/action_p.h)
 #define GDK_DISABLE_DEPRECATION_WARNINGS 1
 #m4 _POP()
 
-_IS_DEPRECATED // This whole file is deprecated.
+//TODO: Deprecate this when we are ready. It is already deprecated in GTK+.
+//_IS_DEPRECATED // This whole file is deprecated.
 
 namespace Gtk
 {
@@ -46,7 +47,6 @@ namespace Gtk
  * See also the methods in the RecentChooser base class.
  *
  * @newin{2,12}
- * @deprecated Use a class that implements interface Gio::Action, such as Gio::SimpleAction.
  *
  * @ingroup RecentFiles
  */

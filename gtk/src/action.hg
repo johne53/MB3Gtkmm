@@ -32,7 +32,7 @@ _PINCLUDE(glibmm/private/object_p.h)
 #define GDK_DISABLE_DEPRECATION_WARNINGS 1
 #m4 _POP()
 
-//TODO: Do this when we can stop using Activatable as a base class, when we break ABI:
+//TODO: Deprecate this when we are ready. It is already deprecated in GTK+.
 //_IS_DEPRECATED // This whole file is deprecated.
 
 namespace Gtk
@@ -73,8 +73,6 @@ class Image;
  *
  * Each action can have one or more proxy menu item, toolbar button or other proxy widgets.
  * Proxies mirror the state of the action (text label, tooltip, icon, visible, sensitive, etc), and should change when the action's state changes. When the proxy is activated, it should activate its action.
- *
- * @deprecated Use a class that implements interface Gio::Action, such as Gio::SimpleAction.
  */
 class Action
   : public Glib::Object,

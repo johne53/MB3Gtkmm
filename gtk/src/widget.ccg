@@ -685,17 +685,6 @@ Requisition Widget::get_requisition() const
 }
 #endif // GTKMM_DISABLE_DEPRECATED
 
-//Implemented manually so we can reorder the parameters, to have a default value:
-void Widget::override_color(const Gdk::RGBA& color, StateFlags state)
-{
-  gtk_widget_override_color(gobj(), ((GtkStateFlags)(state)), (color).gobj());
-}
-
-void Widget::override_background_color(const Gdk::RGBA& color, StateFlags state)
-{
-  gtk_widget_override_background_color(gobj(), ((GtkStateFlags)(state)), (color).gobj());
-}
-
 void Widget::unset_color(StateFlags state)
 {
    gtk_widget_override_color(gobj(), ((GtkStateFlags)(state)), 0);
@@ -721,10 +710,14 @@ void Widget::unset_cursor()
   gtk_widget_override_cursor(gobj(), 0, 0);
 }
 
-
 void Widget::transform_cairo_context_to_window(const Cairo::RefPtr<Cairo::Context>& cr, const Glib::RefPtr<const Gdk::Window>& window)
 {
   gtk_cairo_transform_to_window((cr)->cobj(), gobj(), const_cast<GdkWindow*>(Glib::unwrap<Gdk::Window>(window)));
+}
+
+void Widget::remove_action_group(const Glib::ustring& name)
+{
+  gtk_widget_insert_action_group(gobj(), name.c_str(), 0 /* see C docs */);
 }
 
 } // namespace Gtk

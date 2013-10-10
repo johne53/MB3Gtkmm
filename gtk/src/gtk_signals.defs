@@ -2988,6 +2988,12 @@
 
 ;; From GtkDialog
 
+(define-signal close
+  (of-object "GtkDialog")
+  (return-type "void")
+  (when "last")
+)
+
 (define-signal response
   (of-object "GtkDialog")
   (return-type "void")
@@ -2995,12 +3001,6 @@
   (parameters
     '("gint" "p0")
   )
-)
-
-(define-signal close
-  (of-object "GtkDialog")
-  (return-type "void")
-  (when "last")
 )
 
 ;; From GtkDrawingArea
@@ -4320,6 +4320,53 @@
   (construct-only #f)
 )
 
+;; From GtkHeaderBar
+
+(define-property title
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamString")
+  (docs "The title to display")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property subtitle
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamString")
+  (docs "The subtitle to display")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property custom-title
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamObject")
+  (docs "Custom title widget to display")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property spacing
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamInt")
+  (docs "The amount of space between children")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-close-button
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamBoolean")
+  (docs "Whether to show a window close button")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
 ;; From GtkIconTheme
 
 (define-signal changed
@@ -4487,6 +4534,12 @@
 
 ;; From GtkInfoBar
 
+(define-signal close
+  (of-object "GtkInfoBar")
+  (return-type "void")
+  (when "last")
+)
+
 (define-signal response
   (of-object "GtkInfoBar")
   (return-type "void")
@@ -4494,12 +4547,6 @@
   (parameters
     '("gint" "p0")
   )
-)
-
-(define-signal close
-  (of-object "GtkInfoBar")
-  (return-type "void")
-  (when "last")
 )
 
 (define-property message-type
@@ -4555,12 +4602,6 @@
   (when "last")
 )
 
-(define-signal selection-changed
-  (of-object "GtkIconView")
-  (return-type "void")
-  (when "first")
-)
-
 (define-signal item-activated
   (of-object "GtkIconView")
   (return-type "void")
@@ -4568,6 +4609,12 @@
   (parameters
     '("GtkTreePath*" "p0")
   )
+)
+
+(define-signal selection-changed
+  (of-object "GtkIconView")
+  (return-type "void")
+  (when "first")
 )
 
 (define-signal select-cursor-item
@@ -5064,6 +5111,74 @@
   (readable #t)
   (writable #t)
   (construct-only #f)
+)
+
+;; From GtkListBox
+
+(define-signal row-activated
+  (of-object "GtkListBox")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("GtkListBoxRow*" "p0")
+  )
+)
+
+(define-signal move-cursor
+  (of-object "GtkListBox")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("GtkMovementStep" "p0")
+    '("gint" "p1")
+  )
+)
+
+(define-signal toggle-cursor-row
+  (of-object "GtkListBox")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal row-selected
+  (of-object "GtkListBox")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("GtkListBoxRow*" "p0")
+  )
+)
+
+(define-signal activate-cursor-row
+  (of-object "GtkListBox")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property selection-mode
+  (of-object "GtkListBox")
+  (prop-type "GParamEnum")
+  (docs "The selection mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property activate-on-single-click
+  (of-object "GtkListBox")
+  (prop-type "GParamBoolean")
+  (docs "Activate row on a single click")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From GtkListBoxRow
+
+(define-signal activate
+  (of-object "GtkListBoxRow")
+  (return-type "void")
+  (when "first")
 )
 
 ;; From GtkMenu
@@ -5802,6 +5917,112 @@
   (docs "Largest possible value for the 'position' property")
   (readable #t)
   (writable #f)
+  (construct-only #f)
+)
+
+;; From GtkPlacesSidebar
+
+(define-signal populate-popup
+  (of-object "GtkPlacesSidebar")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("GtkMenu*" "p0")
+    '("GFile*" "p1")
+    '("GVolume*" "p2")
+  )
+)
+
+(define-signal open-location
+  (of-object "GtkPlacesSidebar")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("GFile*" "p0")
+    '("GtkPlacesOpenFlags" "p1")
+  )
+)
+
+(define-signal show-error-message
+  (of-object "GtkPlacesSidebar")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("const-gchar*" "p0")
+    '("const-gchar*" "p1")
+  )
+)
+
+(define-signal show-connect-to-server
+  (of-object "GtkPlacesSidebar")
+  (return-type "void")
+  (when "first")
+)
+
+(define-signal drag-action-requested
+  (of-object "GtkPlacesSidebar")
+  (return-type "gint")
+  (when "last")
+  (parameters
+    '("GdkDragContext*" "p0")
+    '("GFile*" "p1")
+    '("GList*" "p2")
+  )
+)
+
+(define-signal drag-action-ask
+  (of-object "GtkPlacesSidebar")
+  (return-type "gint")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+  )
+)
+
+(define-signal drag-perform-drop
+  (of-object "GtkPlacesSidebar")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("GFile*" "p0")
+    '("GList*" "p1")
+    '("gint" "p2")
+  )
+)
+
+(define-property location
+  (of-object "GtkPlacesSidebar")
+  (prop-type "GParamObject")
+  (docs "The location to highlight in the sidebar")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property open-flags
+  (of-object "GtkPlacesSidebar")
+  (prop-type "GParamFlags")
+  (docs "Modes in which the calling application can open locations selected in the sidebar")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-desktop
+  (of-object "GtkPlacesSidebar")
+  (prop-type "GParamBoolean")
+  (docs "Whether the sidebar includes a builtin shortcut to the Desktop folder")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-connect-to-server
+  (of-object "GtkPlacesSidebar")
+  (prop-type "GParamBoolean")
+  (docs "Whether the sidebar includes a builtin shortcut to a 'Connect to server' dialog")
+  (readable #t)
+  (writable #t)
   (construct-only #f)
 )
 
@@ -6638,13 +6859,13 @@
 
 ;; From GtkRecentChooser
 
-(define-signal selection-changed
+(define-signal item-activated
   (of-object "GtkRecentChooser")
   (return-type "void")
   (when "last")
 )
 
-(define-signal item-activated
+(define-signal selection-changed
   (of-object "GtkRecentChooser")
   (return-type "void")
   (when "last")
@@ -6868,12 +7089,6 @@
 
 ;; From GtkScaleButton
 
-(define-signal popup
-  (of-object "GtkScaleButton")
-  (return-type "void")
-  (when "last")
-)
-
 (define-signal value-changed
   (of-object "GtkScaleButton")
   (return-type "void")
@@ -6881,6 +7096,12 @@
   (parameters
     '("gdouble" "p0")
   )
+)
+
+(define-signal popup
+  (of-object "GtkScaleButton")
+  (return-type "void")
+  (when "last")
 )
 
 (define-signal popdown
@@ -7944,6 +8165,64 @@
   (of-object "GtkSpinButton")
   (prop-type "GParamDouble")
   (docs "Reads the current value, or sets a new value")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From GtkStack
+
+(define-property homogeneous
+  (of-object "GtkStack")
+  (prop-type "GParamBoolean")
+  (docs "Homogeneous sizing")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible-child
+  (of-object "GtkStack")
+  (prop-type "GParamObject")
+  (docs "The widget currently visible in the stack")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible-child-name
+  (of-object "GtkStack")
+  (prop-type "GParamString")
+  (docs "The name of the widget currently visible in the stack")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property transition-duration
+  (of-object "GtkStack")
+  (prop-type "GParamUInt")
+  (docs "The animation duration, in milliseconds")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property transition-type
+  (of-object "GtkStack")
+  (prop-type "GParamEnum")
+  (docs "The type of animation used to transition")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From GtkStackSwitcher
+
+(define-property stack
+  (of-object "GtkStackSwitcher")
+  (prop-type "GParamObject")
+  (docs "Stack")
   (readable #t)
   (writable #t)
   (construct-only #f)

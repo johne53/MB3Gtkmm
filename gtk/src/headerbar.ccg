@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 The gtkmm Development Team
+ * Copyright 2013 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,36 +18,8 @@
 
 #include <gtk/gtk.h>
 
+
 namespace Gtk
 {
-
-ComboBoxText::ComboBoxText(bool has_entry)
-:
-  //The entry-text-column and id-column values are copied from gtk_combo_box_text_new():
-  _CONSTRUCT("has-entry", gboolean(has_entry))
-{}
-
-void ComboBoxText::set_active_text(const Glib::ustring& text)
-{
-  //Look for the row with this text, and activate it:
-  Glib::RefPtr<Gtk::TreeModel> model = get_model();
-  if(model)
-  {
-    for(Gtk::TreeModel::iterator iter = model->children().begin(); iter != model->children().end(); ++iter)
-    {
-      Glib::ustring this_text;
-      iter->get_value(0, this_text);
-
-      if(this_text == text)
-      {
-        set_active(iter);
-        return; //success
-      }
-    }
-  }
-
-  //Not found, so mark it as blank:
-  unset_active();
-}
-
 } // namespace Gtk
+

@@ -30,7 +30,8 @@ _PINCLUDE(glibmm/private/object_p.h)
 #define GDK_DISABLE_DEPRECATION_WARNINGS 1
 #m4 _POP()
 
-_IS_DEPRECATED // This whole file is deprecated.
+//TODO: Deprecate this when we are ready. It is already deprecated in GTK+.
+//_IS_DEPRECATED // This whole file is deprecated.
 
 namespace Gtk
 {
@@ -178,7 +179,6 @@ _WRAP_ENUM(UIManagerItemType, GtkUIManagerItemType)
  * The behaviour is chosen based on the "hide_if_empty" property of the action to which the submenu is associated.
  *
  * @newin{2,4}
- * @depreacted Use Gtk::Builder instead.
  */
 class UIManager : public Glib::Object
 {
@@ -259,12 +259,14 @@ public:
 
   _WRAP_SIGNAL(void add_widget(Widget* widget), add_widget)
   _WRAP_SIGNAL(void actions_changed(), actions_changed)
+
+#m4 _CONVERSION(`GtkAction*',`const Glib::RefPtr<Action>&',`Glib::wrap($3, true)')
   _WRAP_SIGNAL(void connect_proxy(const Glib::RefPtr<Action>& action, Widget* widget), connect_proxy)
   _WRAP_SIGNAL(void disconnect_proxy(const Glib::RefPtr<Action>& action, Widget* widget), disconnect_proxy)
   _WRAP_SIGNAL(void pre_activate(const Glib::RefPtr<Action>& action), pre_activate)
   _WRAP_SIGNAL(void post_activate(const Glib::RefPtr<Action>& action), post_activate)
 
-  _WRAP_PROPERTY("add_tearoffs", bool, deprecated "Tearoff menus are deprecated and should not be used in newly written code.")
+  _WRAP_PROPERTY("add_tearoffs", bool)
   _WRAP_PROPERTY("ui", Glib::ustring)
 
 };
