@@ -21,6 +21,7 @@
 
 #include <glibmm/value.h>
 #include <gtkmmconfig.h> //For GTKMM_MAEMO_EXTENSIONS_ENABLED
+#include <glibmm/value.h>
 
 _DEFS(gtkmm,gtk)
 

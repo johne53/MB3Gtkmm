@@ -20,6 +20,7 @@
 // This is for including the config header before any code (such as
 // the #ifndef GDKMM_DISABLE_DEPRECATED in deprecated classes) is generated:
 _CONFIGINCLUDE(gdkmmconfig.h)
+_CONFIGINCLUDE(glibmm/arrayhandle.h)
 
 #include <glibmm/arrayhandle.h>
 
