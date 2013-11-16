@@ -21,8 +21,8 @@
 /* Minor version number of gtkmm. * /* Defined by JE - 10-08-2013 (was previously #undef'd) */
 #define GTKMM_MINOR_VERSION @GTKMM_MINOR_VERSION@
 
-/* Define when building gtkmm as a static library */ /* Defined by JE - 10-08-2013 (was previously #undef'd) */
-#define GTKMM_STATIC_LIB 1
+/* Define when building gtkmm as a static library */
+/* #undef GTKMM_STATIC_LIB */
 
 /* Enable DLL-specific stuff only when not building a static library */
 #if (!defined(GTKMM_STATIC_LIB) && !defined(__CYGWIN__) && defined(_WIN32))
