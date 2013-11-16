@@ -15,22 +15,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-// We use StockID in the (deprecated) API, so we must temporarily undef GTKMM_DISABLE_DEPRECATED.
-// Temporarily undef GTKMM_DISABLE_DEPRECATED, redefining it later if appropriate.
-#if defined(GTKMM_DISABLE_DEPRECATED) && !defined(GTKMM_GTKMM_DISABLE_DEPRECATED_UNDEFED)
-//Stop the deprecation ifdef guards around the API declarations:
-#undef GTKMM_DISABLE_DEPRECATED
-#define GTKMM_GTKMM_DISABLE_DEPRECATED_UNDEFED 1
-#endif
-
-#include <gtkmm/stockid.h>
-
-// Redefine GTKMM_DISABLE_DEPRECATED if it was defined before we temporarily undefed it:
-#if defined(GTKMM_GTKMM_DISABLE_DEPRECATED_UNDEFED)
-#define GTKMM_DISABLE_DEPRECATED 1
-#undef GTKMM_GTKMM_DISABLE_DEPRECATED_UNDEFED
-#endif
-
 #include <gtkmm/toggleaction.h>
 #include <gtkmm/radiobuttongroup.h>
 
@@ -47,6 +31,8 @@ _PINCLUDE(gtkmm/private/toggleaction_p.h)
 
 namespace Gtk
 {
+
+class StockID; //Deprecated.
 
 /** An action of which only one in a group can be active.
  *
@@ -75,7 +61,7 @@ _DEPRECATE_IFDEF_START
    * @param label    The label displayed in menu items and on buttons.
    * @param tooltip  A tooltip for the action.
    *
-   * @deprecated Stock IDs are deprecated, so use the other construtor.
+   * @deprecated Stock IDs are deprecated, so use the other constructor.
    */
   explicit RadioAction(Group& group, const Glib::ustring& name, const StockID& stock_id = StockID(), const Glib::ustring& label = Glib::ustring(), const Glib::ustring& tooltip = Glib::ustring());
 _DEPRECATE_IFDEF_END
@@ -109,6 +95,7 @@ public:
    */
   static Glib::RefPtr<RadioAction> create(Group& group, const Glib::ustring& name, const Glib::ustring& label = Glib::ustring(), const Glib::ustring& tooltip = Glib::ustring());
 
+_DEPRECATE_IFDEF_START
   /** Creates a radio action with a stock ID.
    * The stock ID is used to set a default icon, text and accelerator for
    * the radio action.
@@ -121,8 +108,11 @@ public:
    * @param tooltip  A tooltip for the action.
    *
    * @return A new RadioAction.
+   *
+   * @deprecated Stock IDs are deprecated, so use the other create() method.
    */
   static Glib::RefPtr<RadioAction> create(Group& group, const Glib::ustring& name, const Gtk::StockID& stock_id, const Glib::ustring& label = Glib::ustring(), const Glib::ustring& tooltip = Glib::ustring());
+_DEPRECATE_IFDEF_END
 
   /** Creates a radio action with an icon name.
    * The radio action's icon will reflect the specified icon name in the
