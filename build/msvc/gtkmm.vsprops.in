@@ -45,6 +45,10 @@
 		Value="@GlibmmBuildRootFolder@"
 	/>
 	<UserMacro
+		Name="GtkmmBuildRootFolder"
+		Value="@GtkmmBuildRootFolder@"
+	/>
+	<UserMacro
 		Name="PangommBuildRootFolder"
 		Value="@PangommBuildRootFolder@"
 	/>
