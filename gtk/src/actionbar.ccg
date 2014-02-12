@@ -21,11 +21,5 @@
 
 namespace Gtk
 {
-
-void HeaderBar::unset_decoration_layout()
-{
-  gtk_header_bar_set_decoration_layout(gobj(), NULL);
-}
-
 } // namespace Gtk
 

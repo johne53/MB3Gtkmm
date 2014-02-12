@@ -17,6 +17,7 @@ gtkmm_files_any_hg =		\
 	accellabel.hg		\
 	action.hg		\
 	actionable.hg		\
+	actionbar.hg		\
 	actiongroup.hg		\
 	activatable.hg		\
 	adjustment.hg		\
@@ -78,6 +79,8 @@ gtkmm_files_any_hg =		\
 	filechooserwidget.hg	\
 	filefilter.hg		\
 	fixed.hg		\
+	flowbox.hg		\
+	flowboxchild.hg		\
 	fontbutton.hg		\
 	fontchooser.hg		\
 	fontchooserdialog.hg	\
@@ -116,6 +119,7 @@ gtkmm_files_any_hg =		\
 	paned.hg		\
 	papersize.hg		\
 	placessidebar.hg	\
+	popover.hg	\
 	printcontext.hg		\
 	printoperation.hg	\
 	printoperationpreview.hg\

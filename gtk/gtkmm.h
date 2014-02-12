@@ -101,6 +101,7 @@ extern const int gtkmm_micro_version;
 #include <gtkmm/accelmap.h>
 #include <gtkmm/accelgroup.h>
 #include <gtkmm/actionable.h>
+#include <gtkmm/actionbar.h>
 #include <gtkmm/adjustment.h>
 #include <gtkmm/alignment.h>
 #include <gtkmm/appchooserbutton.h>
@@ -154,6 +155,8 @@ extern const int gtkmm_micro_version;
 #include <gtkmm/filechooserwidget.h>
 #include <gtkmm/filefilter.h>
 #include <gtkmm/fixed.h>
+#include <gtkmm/flowbox.h>
+#include <gtkmm/flowboxchild.h>
 #include <gtkmm/fontbutton.h>
 #include <gtkmm/fontchooser.h>
 #include <gtkmm/fontchooserdialog.h>
@@ -206,6 +209,7 @@ extern const int gtkmm_micro_version;
 #endif
 #include <gtkmm/papersize.h>
 #include <gtkmm/placessidebar.h>
+#include <gtkmm/popover.h>
 #include <gtkmm/printcontext.h>
 #ifndef G_OS_WIN32
 # include <gtkmm/printer.h>
