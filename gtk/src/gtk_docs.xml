@@ -17527,7 +17527,7 @@ Since: 3.12
 </parameter_description>
 </parameter>
 <parameter name="detailed_action_name">
-<parameter_description> a detailed action name, specifying and action
+<parameter_description> a detailed action name, specifying an action
 and target to obtain accelerators for
 </parameter_description>
 </parameter>
@@ -17858,7 +17858,7 @@ Since: 3.12
 </parameter_description>
 </parameter>
 <parameter name="detailed_action_name">
-<parameter_description> a detailed action name, specifying and action
+<parameter_description> a detailed action name, specifying an action
 and target to associate accelerators with
 </parameter_description>
 </parameter>
@@ -41976,7 +41976,7 @@ Since: 2.4
 </parameter_description>
 </parameter>
 <parameter name="size">
-<parameter_description> the size at which to register the icon (different
+<parameter_description> the size in pixels at which to register the icon (different
 images can be registered for the same icon name
 at different sizes.)
 </parameter_description>
@@ -56102,14 +56102,16 @@ Since: 3.12
 
 <function name="gtk_popover_new">
 <description>
-@relative_to (allow-none): #GtkWidget the popover is related to
-
 Creates a new popover to point to @relative_to
 
 Since: 3.12
 
 </description>
 <parameters>
+<parameter name="relative_to">
+<parameter_description> #GtkWidget the popover is related to
+</parameter_description>
+</parameter>
 </parameters>
 <return> a new #GtkPopover
 
@@ -56233,7 +56235,10 @@ Since: 3.12
 <parameters>
 <parameter name="popover">
 <parameter_description> a #GtkPopover
-@relative_to (allow-none): a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="relative_to">
+<parameter_description> a #GtkWidget
 </parameter_description>
 </parameter>
 </parameters>
@@ -69157,6 +69162,10 @@ visible child, the transition between the
 two will be animated with the current
 transition type of @stack.
 
+Note that the @child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
+
 Since: 3.10
 
 </description>
@@ -69176,6 +69185,10 @@ Since: 3.10
 <function name="gtk_stack_set_visible_child_full">
 <description>
 Makes the child with the given name visible.
+
+Note that the child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
 
 Since: 3.10
 
@@ -69205,6 +69218,10 @@ If @child is different from the currently
 visible child, the transition between the
 two will be animated with the current
 transition type of @stack.
+
+Note that the child widget has to be visible itself
+(see gtk_widget_show()) in order to become the visible
+child of @stack.
 
 Since: 3.10
 
