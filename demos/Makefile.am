@@ -33,6 +33,8 @@ gtk_demo_gtkmm_demo_SOURCES =				\
 	gtk-demo/example_colorsel.cc			\
 	gtk-demo/example_dialog.cc			\
 	gtk-demo/example_drawingarea.cc			\
+	gtk-demo/example_flowbox.cc			\
+	gtk-demo/example_headerbar.cc			\
 	gtk-demo/example_icontheme.cc			\
 	gtk-demo/example_iconview.cc			\
 	gtk-demo/example_images.cc			\

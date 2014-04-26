@@ -15,7 +15,7 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([gtkmm], [3.11.9],
+AC_INIT([gtkmm], [3.12.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gtkmm],
         [gtkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
@@ -25,7 +25,7 @@ AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build])
 AC_CONFIG_HEADERS([config.h gdk/gdkmmconfig.h gtk/gtkmmconfig.h])
 
-AM_INIT_AUTOMAKE([1.9 -Wno-portability no-dist-gzip dist-xz tar-ustar no-define nostdinc])
+AM_INIT_AUTOMAKE([1.9 -Wno-portability check-news no-dist-gzip dist-xz tar-ustar no-define nostdinc])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
 AM_MAINTAINER_MODE
 AC_ARG_VAR([ACLOCAL_FLAGS], [aclocal flags, e.g. -I <macro dir>])
@@ -91,7 +91,7 @@ AS_IF([test "x$enable_static" = xyes],
 # gdkmm really does need GTK+, because part of Gdk::DragContext is in GTK+.
 # The extra cairomm-1.0 check is because gdkmm requires a newer cairomm than pangomm requires.
 # The extra gdk-pixbuf-2.0 check is because gdkmm requires a newer gdk-pixbuf than gtk+-3.0 requires.
-AC_SUBST([GDKMM_MODULES], ['giomm-2.4 >= 2.38.0 pangomm-1.4 >= 2.27.1 gtk+-3.0 >= 3.11.9 cairomm-1.0 >= 1.9.2 gdk-pixbuf-2.0 >= 2.26.0'])
+AC_SUBST([GDKMM_MODULES], ['giomm-2.4 >= 2.38.0 pangomm-1.4 >= 2.27.1 gtk+-3.0 >= 3.12.0 cairomm-1.0 >= 1.9.2 gdk-pixbuf-2.0 >= 2.26.0'])
 
 AS_IF([test "x$gtkmm_host_windows" = xyes],
       [GTKMM_MODULES=$GDKMM_MODULES],
