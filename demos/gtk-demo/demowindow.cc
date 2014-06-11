@@ -76,13 +76,14 @@ const DemoColumns& demo_columns()
 
 
 DemoWindow::DemoWindow()
-: m_HBox(Gtk::ORIENTATION_HORIZONTAL),
+: m_RunButton("Run"),
+  m_HBox(Gtk::ORIENTATION_HORIZONTAL),
   m_TextWidget_Info(false),
   m_TextWidget_Source(true)
 {
   m_pWindow_Example = 0;
 
-  set_title("gtkmm Code Demos");
+  configure_header_bar();
 
   add(m_HBox);
 
@@ -98,17 +99,32 @@ DemoWindow::DemoWindow()
 
   fill_tree();
 
-  m_HBox.pack_start(m_TreeView, Gtk::PACK_SHRINK);
+  //SideBar
+  m_SideBar.set_policy(Gtk::POLICY_NEVER, Gtk::POLICY_AUTOMATIC);
+  m_SideBar.get_style_context()->add_class("sidebar");
+  m_SideBar.add(m_TreeView);
+  m_HBox.pack_start(m_SideBar, Gtk::PACK_SHRINK);
 
   //Notebook:
   m_Notebook.append_page(m_TextWidget_Info, "_Info", true);  //true = use mnemonic.
   m_Notebook.append_page(m_TextWidget_Source, "_Source", true);  //true = use mnemonic.
   m_HBox.pack_start(m_Notebook);
 
-  set_default_size (600, 400);
+  set_default_size (800, 600);
 
   load_file (testgtk_demos[0].filename);
   show_all();
+}
+
+void DemoWindow::configure_header_bar()
+{
+  m_HeaderBar.set_show_close_button();
+  m_HeaderBar.pack_start(m_RunButton);
+
+  m_RunButton.get_style_context()->add_class("suggested-action");
+  m_RunButton.signal_clicked().connect(sigc::mem_fun(*this, &DemoWindow::on_run_button_clicked));
+
+  set_titlebar(m_HeaderBar);
 }
 
 void DemoWindow::fill_tree()
@@ -158,6 +174,19 @@ DemoWindow::~DemoWindow()
   on_example_window_hide(); //delete the example window if there is one.
 }
 
+void DemoWindow::on_run_button_clicked()
+{
+  if(m_pWindow_Example == 0) //Don't open a second window.
+  {
+    if(const Gtk::TreeModel::iterator iter = m_refTreeSelection->get_selected())
+    {
+      m_TreePath = m_refTreeStore->get_path(iter);
+
+      run_example(*iter);
+    }
+  }
+}
+
 void DemoWindow::on_treeview_row_activated(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn* /* model */)
 {
   m_TreePath = path;
@@ -166,19 +195,23 @@ void DemoWindow::on_treeview_row_activated(const Gtk::TreeModel::Path& path, Gtk
   {
     if(const Gtk::TreeModel::iterator iter = m_TreeView.get_model()->get_iter(m_TreePath))
     {
-      Gtk::TreeModel::Row row = *iter;
-      const DemoColumns& columns = demo_columns();
-
-      const type_slotDo& slot = row[columns.slot];
-
-      if(slot && (m_pWindow_Example = slot()))
-      {
-        row[columns.italic] = true;
-
-        m_pWindow_Example->signal_hide().connect(sigc::mem_fun(*this, &DemoWindow::on_example_window_hide));
-        m_pWindow_Example->show();
-      }
+      run_example(*iter);
     }
+  }
+}
+
+void DemoWindow::run_example(const Gtk::TreeModel::Row& row)
+{
+  const DemoColumns& columns = demo_columns();
+
+  const type_slotDo& slot = row[columns.slot];
+
+  if(slot && (m_pWindow_Example = slot()))
+  {
+    row[columns.italic] = true;
+
+    m_pWindow_Example->signal_hide().connect(sigc::mem_fun(*this, &DemoWindow::on_example_window_hide));
+    m_pWindow_Example->show();
   }
 }
 
@@ -194,8 +227,10 @@ void DemoWindow::on_treeselection_changed()
   if(const Gtk::TreeModel::iterator iter = m_refTreeSelection->get_selected())
   {
     const Glib::ustring filename = (*iter)[demo_columns().filename];
+    const Glib::ustring title = (*iter)[demo_columns().title];
 
     load_file(Glib::filename_from_utf8(filename));
+    m_HeaderBar.set_title(title);
   }
 }
 
