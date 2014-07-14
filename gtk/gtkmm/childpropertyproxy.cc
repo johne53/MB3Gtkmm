@@ -1,5 +1,8 @@
-/*
- * Copyright 2013 The gtkmm Development Team
+// -*- c++ -*-
+
+/* childpropertyproxy.cc
+ *
+ * Copyright 2014 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -12,18 +15,12 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <gtk/gtk.h>
+#include <gtkmm/childpropertyproxy.h>
 
 namespace Gtk
 {
-
-void Stack::add(Widget& child)
-{
-  Container::add(child);
-}
-
-} //namespace Gtk
+} // namespace Gtk
