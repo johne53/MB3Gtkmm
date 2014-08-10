@@ -12693,6 +12693,51 @@
   (construct-only #f)
 )
 
+(define-child-property expand
+  (of-object "GtkBox")
+  (prop-type "GParamBoolean")
+  (docs "Whether the child should receive extra space when the parent grows")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property fill
+  (of-object "GtkBox")
+  (prop-type "GParamBoolean")
+  (docs "Whether extra space given to the child should be allocated to the child or used as padding")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property padding
+  (of-object "GtkBox")
+  (prop-type "GParamUInt")
+  (docs "Extra space to put between the child and its neighbors, in pixels")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property pack-type
+  (of-object "GtkBox")
+  (prop-type "GParamEnum")
+  (docs "A GtkPackType indicating whether the child is packed with reference to the start or end of the parent")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property position
+  (of-object "GtkBox")
+  (prop-type "GParamInt")
+  (docs "The index of the child in the parent")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
 (define-child-property x
   (of-object "GtkFixed")
   (prop-type "GParamInt")
@@ -12704,6 +12749,96 @@
 
 (define-child-property y
   (of-object "GtkFixed")
+  (prop-type "GParamInt")
+  (docs "Y position of child widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property left-attach
+  (of-object "GtkGrid")
+  (prop-type "GParamInt")
+  (docs "The column number to attach the left side of the child to")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property top-attach
+  (of-object "GtkGrid")
+  (prop-type "GParamInt")
+  (docs "The row number to attach the top side of a child widget to")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property width
+  (of-object "GtkGrid")
+  (prop-type "GParamInt")
+  (docs "The number of columns that a child spans")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property height
+  (of-object "GtkGrid")
+  (prop-type "GParamInt")
+  (docs "The number of rows that a child spans")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property pack-type
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamEnum")
+  (docs "A GtkPackType indicating whether the child is packed with reference to the start or end of the parent")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property position
+  (of-object "GtkHeaderBar")
+  (prop-type "GParamInt")
+  (docs "The index of the child in the parent")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-child-property resize
+  (of-object "GtkPaned")
+  (prop-type "GParamBoolean")
+  (docs "If TRUE, the child expands and shrinks along with the paned widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property shrink
+  (of-object "GtkPaned")
+  (prop-type "GParamBoolean")
+  (docs "If TRUE, the child can be made smaller than its requisition")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property x
+  (of-object "GtkLayout")
+  (prop-type "GParamInt")
+  (docs "X position of child widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property y
+  (of-object "GtkLayout")
   (prop-type "GParamInt")
   (docs "Y position of child widget")
   (readable #t)
@@ -12832,6 +12967,69 @@
   (of-object "GtkToolbar")
   (prop-type "GParamBoolean")
   (docs "Whether the item should be the same size as other homogeneous items")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property homogeneous
+  (of-object "GtkToolItemGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item should be the same size as other homogeneous items")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property expand
+  (of-object "GtkToolItemGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item should receive extra space when the group grows")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property fill
+  (of-object "GtkToolItemGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item should fill the available space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property new-row
+  (of-object "GtkToolItemGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item should start a new row")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property position
+  (of-object "GtkToolItemGroup")
+  (prop-type "GParamInt")
+  (docs "Position of the item within this group")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property exclusive
+  (of-object "GtkToolPalette")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item group should be the only expanded at a given time")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-child-property expand
+  (of-object "GtkToolPalette")
+  (prop-type "GParamBoolean")
+  (docs "Whether the item group should receive extra space when the palette grows")
   (readable #t)
   (writable #t)
   (construct-only #f)
