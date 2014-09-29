@@ -11,7 +11,7 @@
 
 #include "gtkmm.h"
 
-// 2014-05-21: The pan-[up,down,left,right]-symbolic icons are new.
+// 2014-09-19: The pan-[up,down,start,end]-symbolic icons are new.
 // See https://bugzilla.gnome.org/show_bug.cgi?id=729565
 // If they are not available in your selected icon theme, perhaps you can
 // use the go-[up,down,previous,next]-symbolic icons.
@@ -80,7 +80,10 @@ Example_HeaderBar::~Example_HeaderBar()
 
 void Example_HeaderBar::configure_send_receive_button()
 {
-  Glib::RefPtr<Gio::ThemedIcon> icon = Gio::ThemedIcon::create("mail-send-receive-symbolic", false);
+  /* the 'const' is required, to avoid C2668/Ambiguous call errors
+     on some compilers, such as Visual Studio or when compiling without
+     GTKMM_DISABLE_DEPRECATED on g++ */
+  Glib::RefPtr<const Gio::Icon> icon = Gio::ThemedIcon::create("mail-send-receive-symbolic", false);
 
   m_send_receive_image.set(icon, Gtk::ICON_SIZE_BUTTON);
   m_send_receive_button.add(m_send_receive_image);
@@ -91,8 +94,8 @@ void Example_HeaderBar::configure_arrow_buttons()
   m_arrow_buttons_box.get_style_context()->add_class("linked");
 
 #if USE_PAN_ICON_NAMES
-  m_left_arrow_button.set_image_from_icon_name("pan-left-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-  m_right_arrow_button.set_image_from_icon_name("pan-right-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+  m_left_arrow_button.set_image_from_icon_name("pan-start-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+  m_right_arrow_button.set_image_from_icon_name("pan-end-symbolic", Gtk::ICON_SIZE_BUTTON, true);
 #else
   m_left_arrow_button.set_image_from_icon_name("go-previous-symbolic", Gtk::ICON_SIZE_BUTTON, true);
   m_right_arrow_button.set_image_from_icon_name("go-next-symbolic", Gtk::ICON_SIZE_BUTTON, true);
