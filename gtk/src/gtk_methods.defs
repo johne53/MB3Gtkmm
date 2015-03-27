@@ -1912,6 +1912,18 @@
   )
 )
 
+(define-flags BlurFlags
+  (in-module "Gtk")
+  (c-name "GtkBlurFlags")
+  (gtype-id "GTK_TYPE_BLUR_FLAGS")
+  (values
+    '("none" "GTK_BLUR_NONE")
+    '("x" "GTK_BLUR_X")
+    '("y" "GTK_BLUR_Y")
+    '("repeat" "GTK_BLUR_REPEAT")
+  )
+)
+
 (define-flags CalendarDisplayOptions
   (in-module "Gtk")
   (c-name "GtkCalendarDisplayOptions")
@@ -14492,8 +14504,8 @@
   (c-name "gtk_gl_area_set_required_version")
   (return-type "none")
   (parameters
-    '("int" "major")
-    '("int" "minor")
+    '("gint" "major")
+    '("gint" "minor")
   )
 )
 
@@ -14502,8 +14514,8 @@
   (c-name "gtk_gl_area_get_required_version")
   (return-type "none")
   (parameters
-    '("int*" "major")
-    '("int*" "minor")
+    '("gint*" "major")
+    '("gint*" "minor")
   )
 )
 
@@ -27257,6 +27269,10 @@
   (c-name "gtk_text_attributes_get_type")
   (return-type "GType")
 )
+
+
+
+;; From gtktextattributesprivate.h
 
 
 
