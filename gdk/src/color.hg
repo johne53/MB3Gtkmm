@@ -22,6 +22,8 @@
 _CONFIGINCLUDE(gdkmmconfig.h)
 _CONFIGINCLUDE(glibmm/arrayhandle.h)
 
+#include <glibmm/arrayhandle.h>
+
 _DEFS(gdkmm,gdk)
 
 namespace Gdk
