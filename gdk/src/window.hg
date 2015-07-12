@@ -31,11 +31,6 @@ _CONFIGINCLUDE(gdkmmconfig.h)
 _DEFS(gdkmm,gdk)
 _PINCLUDE(glibmm/private/object_p.h)
 
-#m4 _PUSH(SECTION_CC_PRE_INCLUDES)
-#undef GDK_DISABLE_DEPRECATED
-#define GDK_DISABLE_DEPRECATION_WARNINGS 1
-#m4 _POP()
-
 namespace Gdk
 {
 
@@ -131,6 +126,9 @@ public:
   _WRAP_METHOD(void input_shape_combine_region(const ::Cairo::RefPtr< ::Cairo::Region>& shape_region, int offset_x, int offset_y), gdk_window_input_shape_combine_region)
   _WRAP_METHOD(void set_child_input_shapes(), gdk_window_set_child_input_shapes)
   _WRAP_METHOD(void merge_child_input_shapes(), gdk_window_merge_child_input_shapes)
+
+  _WRAP_METHOD(void set_pass_through(bool pass_through = true), gdk_window_set_pass_through)
+  _WRAP_METHOD(bool get_pass_through() const, gdk_window_get_pass_through)
 
   _WRAP_METHOD(bool is_visible() const, gdk_window_is_visible)
   _WRAP_METHOD(bool is_viewable() const, gdk_window_is_viewable)

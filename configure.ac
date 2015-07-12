@@ -15,7 +15,7 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([gtkmm], [3.17.3],
+AC_INIT([gtkmm], [3.17.4],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gtkmm],
         [gtkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
@@ -43,6 +43,8 @@ MM_CONFIG_DOCTOOL_DIR([docs])
 AC_SUBST([LIBGTKMM_SO_VERSION], [2:0:1])
 
 AC_PROG_CXX
+AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
 
