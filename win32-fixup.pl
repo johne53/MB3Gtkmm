@@ -83,9 +83,9 @@ if (-1 != index($command, "-X64")) {
 
 process_file ("gdk/gdkmm.pc");
 process_file ("gtk/gtkmm.pc");
-process_file ("gtk/gtkmmconfig.h");
 
 if (-1 != index($command, "-buildall")) {
+	process_file ("gtk/gtkmmconfig.h");
 	process_file ("gdk/gdkmmconfig.h");
 	process_file ("build/msvc/gtkmm.vsprops");
 }
